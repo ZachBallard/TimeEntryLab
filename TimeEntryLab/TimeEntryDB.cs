@@ -34,6 +34,10 @@ namespace TimeEntryLab
         public DateTime StartDate { get; set; }
 
         public virtual ICollection<Group> Groups { get; set; }
+        public virtual ICollection<Task> Tasks { get; set; }
+        public virtual ICollection<ProjectNotes> ProjectNotes { get; set; }
+        public virtual ICollection<ClientNotes> ClientNotes { get; set; }
+        public virtual ICollection<IndustryNotes> IndustryNotes { get; set; }
     }
 
     public class Group
@@ -49,6 +53,7 @@ namespace TimeEntryLab
         public int Id { get; set; }
         public string Name { get; set; }
  
+        public virtual ICollection<ClientNotes> ClientNotes { get; set; }
         public virtual ICollection<Project> Projects { get; set; }
         public virtual Industry Industry { get; set; }
     }
@@ -59,6 +64,7 @@ namespace TimeEntryLab
         public string Name { get; set; }
 
         public virtual ICollection<Client> Clients { get; set; }
+        public virtual ICollection<IndustryNotes> IndustryNotes { get; set; }
     }
 
     public class Project
@@ -69,6 +75,7 @@ namespace TimeEntryLab
 
         public virtual Client Client { get; set; }
         public virtual ICollection<Task> Tasks { get; set; }
+        public virtual ICollection<ProjectNotes> ProjectNotes { get; set; }
     }
 
     public class Task
@@ -82,5 +89,32 @@ namespace TimeEntryLab
         public virtual Developer Developer { get; set; }
         public virtual Project Project { get; set; }
         public virtual Task ParentTask { get; set; }
+    }
+
+    public class ProjectNotes
+    {
+        public int Id { get; set; }
+        public string note { get; set; }
+
+        public virtual Developer Developer { get; set; }
+        public virtual Project Project { get; set; }
+    }
+
+    public class ClientNotes
+    {
+        public int Id { get; set; }
+        public string note { get; set; }
+
+        public virtual Developer Developer { get; set; }
+        public virtual Client Client { get; set; }
+    }
+
+    public class IndustryNotes
+    {
+        public int Id { get; set; }
+        public string note { get; set; }
+
+        public virtual Developer Developer { get; set; }
+        public virtual Industry Industry { get; set; }
     }
 }
