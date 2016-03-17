@@ -94,7 +94,7 @@ namespace TimeEntryLab
     public class ProjectNotes
     {
         public int Id { get; set; }
-        public string note { get; set; }
+        public string Note { get; set; }
 
         public virtual Developer Developer { get; set; }
         public virtual Project Project { get; set; }
@@ -103,7 +103,7 @@ namespace TimeEntryLab
     public class ClientNotes
     {
         public int Id { get; set; }
-        public string note { get; set; }
+        public string Note { get; set; }
 
         public virtual Developer Developer { get; set; }
         public virtual Client Client { get; set; }
@@ -112,7 +112,7 @@ namespace TimeEntryLab
     public class IndustryNotes
     {
         public int Id { get; set; }
-        public string note { get; set; }
+        public string Note { get; set; }
 
         public virtual Developer Developer { get; set; }
         public virtual Industry Industry { get; set; }
