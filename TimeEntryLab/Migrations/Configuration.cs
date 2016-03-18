@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace TimeEntryLab.Migrations
 {
     using System;
@@ -10,6 +12,7 @@ namespace TimeEntryLab.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(TimeEntryLab.TimeEntryDB context)
@@ -26,6 +29,23 @@ namespace TimeEntryLab.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            //Seed Tree plan
+            //Create 5 developers
+            //
+            var zach = new Developer()
+            {
+                Email = "zach@test.com",
+                Name = "Zach Ballard",
+                StartDate = new DateTime(2015, 3, 1),
+            };
+
+            context.Developers.AddOrUpdate(
+                d => d.Name,
+                zach,
+                new Developer() { Email = "different@test.com", Name = "Daniel Pollock", StartDate = new DateTime(2015, 1, 1) }
+                );
+
         }
     }
 }
