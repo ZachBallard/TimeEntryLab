@@ -23,10 +23,17 @@ namespace TimeEntryLab
         // Add a DbSet for each entity type that you want to include in your model. For more information 
         // on configuring and using a Code First model, see http://go.microsoft.com/fwlink/?LinkId=390109.
 
-         public virtual DbSet<Developer> Developers { get; set; }
-         public virtual DbSet<Project> Projects { get; set; }
+        public virtual DbSet<Developer> Developers { get; set; }
+        public virtual DbSet<Project> Projects { get; set; }
+        public virtual DbSet<Client> Clients { get; set; }
+        public virtual DbSet<Task> Tasks { get; set; }
+        public virtual DbSet<Industry> Industries { get; set; }
+        public virtual DbSet<ProjectNotes> Projectnotes { get; set; }
+        public virtual DbSet<ClientNotes> ClientNotes { get; set; }
+        public virtual DbSet<IndustryNotes> IndustryNotes { get; set; }
+
     }
-    
+
     public class Developer
     {
         public int Id { get; set; }
@@ -53,7 +60,7 @@ namespace TimeEntryLab
     {
         public int Id { get; set; }
         public string Name { get; set; }
- 
+
         public virtual ICollection<ClientNotes> ClientNotes { get; set; } = new List<ClientNotes>();
         public virtual ICollection<Project> Projects { get; set; } = new List<Project>();
         public virtual Industry Industry { get; set; }
@@ -65,7 +72,7 @@ namespace TimeEntryLab
         public string Name { get; set; }
 
         public virtual ICollection<Client> Clients { get; set; } = new List<Client>();
-        public virtual ICollection<IndustryNotes> IndustryNotes { get; set; } =  new List<IndustryNotes>();
+        public virtual ICollection<IndustryNotes> IndustryNotes { get; set; } = new List<IndustryNotes>();
     }
 
     public class Project
